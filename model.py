@@ -7,7 +7,7 @@ import random
 
 
 def cleaning():
-    df_books = pd.read_csv('Books.csv.zip', compression='zip')
+    df_books = pd.read_csv('Books.csv')
     df_ratings = pd.read_csv('Ratings.csv.zip', compression='zip')
     df_users = pd.read_csv('Users.csv.zip', compression='zip')
 
@@ -18,7 +18,7 @@ def cleaning():
     df.dropna(inplace=True)
     df.reset_index(drop=True, inplace=True)
 
-    df.drop(columns=["Year-Of-Publication", "Image-URL-S", "Image-URL-L", 'Age'], axis=1, inplace=True)
+    df.drop(columns=["Image-URL-S", "Image-URL-L", 'Age'], axis=1, inplace=True)
     df.drop(index=df[df["Book-Rating"] == 0].index, inplace=True)
 
     #df["Book-Title"] = df["Book-Title"].apply(lambda x: re.sub("[\W_]+", " ", x).strip())
