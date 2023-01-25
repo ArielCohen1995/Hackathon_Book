@@ -7,7 +7,7 @@ import random
 
 
 def cleaning():
-    df_books = pd.read_csv('Books2.csv.zip', compression='zip')
+    df_books = pd.read_csv('Books2.zip', compression='zip')
     df_ratings = pd.read_csv('Ratings.csv.zip', compression='zip')
     df_users = pd.read_csv('Users.csv.zip', compression='zip')
 
