@@ -118,10 +118,10 @@ def main(user_id):
     books_reco_culture = books_return(df, users_reco_culture, user_id)
     print(books_reco_culture)
 
-    user_reco_culture_others = user_reco_culture_other(df, user_id)
-    books_reco_culture_other = books_return(df, user_reco_culture_others, user_id)
-    print(books_reco_culture_other)
-    return best_book, books_reco_culture, books_reco_culture_other
+    #user_reco_culture_others = user_reco_culture_other(df, user_id)
+    #books_reco_culture_other = books_return(df, user_reco_culture_others, user_id)
+    #print(books_reco_culture_other)
+    return best_book, books_reco_culture
 
 #if __name__ == '__main__':
 #    print(main(11400))
