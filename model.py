@@ -22,7 +22,7 @@ def cleaning():
     #df.drop(index=df[df["Book-Rating"] == 0].index, inplace=True)
 
     #df.to_csv("df_final.csv")
-    df = pd.read_csv('df_final.csv')
+    df = pd.read_csv('df_final.zip', compression='zip')
 
     #df["Book-Title"] = df["Book-Title"].apply(lambda x: re.sub("[\W_]+", " ", x).strip())
     return df
@@ -113,7 +113,7 @@ def user_reco_culture_other(df, user_id):
     return user_rec
 
 def main(user_id):
-    df = pd.read_csv('df_final.csv')
+    df = pd.read_csv('df_final.zip', compression='zip')
     best_book = best_books(df, user_id)
     print(best_book)
 
