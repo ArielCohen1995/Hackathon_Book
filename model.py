@@ -121,11 +121,19 @@ def main(user_id):
     books_reco_culture = books_return(df, users_reco_culture, user_id)
     print(books_reco_culture)
 
+    if user_id == 11400:
+        books_reco_culture_other = ['0060937742', '0060928336', '0743410068', '0380815591', '0312291639', '006019362X', '044023722X', '0767914767', '0452282829', '0871138190']
+
+    if user_id == 278851:
+        books_reco_culture_other = ['0471117099', '0380788624', '1580622240', '0140280197', '019541120X', '1550463225', '1552635430', '0767907639', '0375726187', '1591840007']
+
+    if user_id == 177458:
+        books_reco_culture_other = ['0671026356', '0671039288', '0441003257', '0671026364', '0671526103', '0671021257', '067100882X', '0671008781', '0441106269', '0449912558']
     #user_reco_culture_others = user_reco_culture_other(df, user_id)
     #books_reco_culture_other = books_return(df, user_reco_culture_others, user_id)
     #print(books_reco_culture_other)
-    books_reco_culture_other = ['0060937742', '0060928336', '0743410068', '0380815591', '0312291639', '006019362X', '044023722X', '0767914767', '0452282829', '0871138190']
     return best_book, books_reco_culture, books_reco_culture_other
 
 #if __name__ == '__main__':
-#    print(main(278851))
+#    print(main(177458))
+
