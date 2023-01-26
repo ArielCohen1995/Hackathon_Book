@@ -7,19 +7,22 @@ import random
 
 
 def cleaning():
-    df_books = pd.read_csv('Books2.zip', compression='zip')
-    df_ratings = pd.read_csv('Ratings.csv.zip', compression='zip')
-    df_users = pd.read_csv('Users.csv.zip', compression='zip')
+    #df_books = pd.read_csv('Books2.zip', compression='zip')
+    #df_ratings = pd.read_csv('Ratings.csv.zip', compression='zip')
+    #df_users = pd.read_csv('Users2.csv')
 
-    books_data = df_books.merge(df_ratings, on="ISBN")
-    books_data_final = books_data.merge(df_users, on="User-ID")
+    #books_data = df_books.merge(df_ratings, on="ISBN")
+    #books_data_final = books_data.merge(df_users, on="User-ID")
 
-    df = books_data_final.copy()
-    df.dropna(inplace=True)
-    df.reset_index(drop=True, inplace=True)
+    #df = books_data_final.copy()
+    #df.dropna(inplace=True)
+    #df.reset_index(drop=True, inplace=True)
 
-    df.drop(columns=["Image-URL-S", "Image-URL-L", 'Age'], axis=1, inplace=True)
-    df.drop(index=df[df["Book-Rating"] == 0].index, inplace=True)
+    #df.drop(columns=["Image-URL-S", "Image-URL-L", 'Age'], axis=1, inplace=True)
+    #df.drop(index=df[df["Book-Rating"] == 0].index, inplace=True)
+
+    #df.to_csv("df_final.csv")
+    df = pd.read_csv('df_final.csv')
 
     #df["Book-Title"] = df["Book-Title"].apply(lambda x: re.sub("[\W_]+", " ", x).strip())
     return df
@@ -110,7 +113,7 @@ def user_reco_culture_other(df, user_id):
     return user_rec
 
 def main(user_id):
-    df = cleaning()
+    df = pd.read_csv('df_final.csv')
     best_book = best_books(df, user_id)
     print(best_book)
 
@@ -118,10 +121,10 @@ def main(user_id):
     books_reco_culture = books_return(df, users_reco_culture, user_id)
     print(books_reco_culture)
 
-    #user_reco_culture_others = user_reco_culture_other(df, user_id)
-    #books_reco_culture_other = books_return(df, user_reco_culture_others, user_id)
-    #print(books_reco_culture_other)
-    return best_book, books_reco_culture
+    user_reco_culture_others = user_reco_culture_other(df, user_id)
+    books_reco_culture_other = books_return(df, user_reco_culture_others, user_id)
+    print(books_reco_culture_other)
+    return best_book, books_reco_culture, books_reco_culture_other
 
 #if __name__ == '__main__':
-#    print(main(11400))
+#    print(main(278851))
