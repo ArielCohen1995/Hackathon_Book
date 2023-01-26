@@ -9,8 +9,8 @@ app = Flask(__name__)
 def my_user():
     """Perform the prediction using an API"""
     user_id = request.args.get('user_id')
-    best_book, books_reco_culture = main(int(user_id))
-    return jsonify({"Books_Read": best_book, "Books_Same_Culture": books_reco_culture})
+    best_book, books_reco_culture, books_reco_culture_other = main(int(user_id))
+    return jsonify({"Books_Read": best_book, "Books_Same_Culture": books_reco_culture,  "Books_Other_Culture":books_reco_culture_other})
 
 
 if __name__ == '__main__':
